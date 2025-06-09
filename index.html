@@ -3,86 +3,249 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>2025 法瑞自由行</title>
+  <title>法瑞・15日</title>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: sans-serif;
-      padding: 2rem;
-      background: #f9f9f9;
-      color: #333;
+      font-family: 'Noto Sans TC', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      letter-spacing: 1.5px;
+      font-weight: 300;
+      position: relative;
     }
-    h1 {
+    header {
+      background: url('https://www.swisstours.com/images/Mountains/lucerne-and-titlis-snow-experience-medium1.webp') center/cover no-repeat;
+      color: white;
+      height: 50vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      color: #0066cc;
+      position: relative;
     }
-    select {
-      margin: 1rem auto;
-      display: block;
-      padding: 0.5rem;
+    header h1 {
+      margin: 0;
+      font-size: 3rem;
+      font-family: 'Noto Serif TC', serif;
+      letter-spacing: 6px;
+      font-weight: 700;
+    }
+    header p {
       font-size: 1rem;
+      letter-spacing: 3px;
+      margin-top: 0.5rem;
     }
-    .day-details {
-      max-width: 600px;
-      margin: 0 auto;
-      background: #fff;
-      padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    nav {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 1rem;
+      padding: 4rem 4rem 2rem;
+      background-color: white;
     }
-    ul {
+    nav button {
+      background: none;
+      color: #7B7B7B;
+      border: none;
+      padding: 0.5rem 1rem;
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.25rem;
+      font-weight: 500;
+      letter-spacing: 1.2px;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+    nav button:hover {
+      text-decoration: none;
+      color: #444;
+    }
+    nav button:not(:last-child)::after {
+      content: "|";
+      color: #D3C8BF;
+      position: absolute;
+      right: -0.8rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.2rem;
+    }
+    .tab {
+      display: none;
+      padding: 2rem;
+    }
+    .active {
+      display: block;
+    }
+    .day {
+      background: transparent;
+      padding-left: 3rem;
+      margin-bottom: 1.5rem;
+      border-radius: 0;
+      box-shadow: none;
+      position: relative;
+      z-index: 1;
+    }
+    .day h2 {
+      margin-top: 0;
+      color: #626161;
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      z-index: 1;
+    }
+    .subtitle {
+      margin-top: -2rem;
+      margin-bottom: 2rem;
+      color: #626161;
+      font-family: 'Noto Sans TC', serif;
+      font-size: 1.2rem;
+      letter-spacing: 1.4px;
+      padding-bottom: 1.5rem;
+      display: block;
+      position: relative;
+      width: 100%;
+      max-width: 50rem;
+      border-bottom: none;
+      z-index: 0;
+    }
+    .subtitle::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #ffffff;
+      border-right: 1px solid #D3C8BF;
+      border-bottom: 1px solid #D3C8BF;
+      border-left: 1px solid transparent;
+      border-top: 1px solid transparent;
+      z-index: -1;
+    }
+    .subtitle-wrapper {
+      position: relative;
+    }
+    .bg-accent {
+      content: "";
+      position: absolute;
+      right: -5rem;
+      top: 1rem;
+      width: 30rem;
+      height: 16.5rem;
+      background-color: #F1EDEA;
+      z-index: -2;
+      border-radius: 3rem;
+      pointer-events: none;
+    }
+    .image-gallery {
+      display: flex;
+      overflow-x: auto;
+      gap: 3.7rem;
+      padding: 3.5rem 0;
+    }
+    .image-item {
+      flex: 0 0 auto;
+      max-width: 35%;
+    }
+    .image-item img {
+      width: 100%;
+      border-radius: 25px;
+      max-height: 200px;
+    }
+    .sight-title {
+      font-size: 1.05rem;
+      color: #8F613E;
+      font-weight: 400;
+      margin-top: 1.2rem;
+    }
+    .sight-desc {
+      font-size: 0.95rem;
+      color: #7b7b7b;
+      max-width: 40ch;
+      font-weight: 100;
+      line-height: 1.4;
+      margin-top: 1.5rem;
+    }
+    .itinerary ul {
+      margin-top: 3rem;
       padding-left: 1.2rem;
+      color: #4f4f4f;
+    }
+    .info {
+      margin-top: 2rem;
+      font-size: 0.95rem;
+      color: #333;
     }
   </style>
 </head>
 <body>
-  <h1>2025 法瑞自由行</h1>
+  <header>
+    <h1>法瑞・15日</h1>
+    <p>漫遊巴黎花都・宏覽瑞士群山</p>
+  </header>
 
-  <label for="day-select">選擇日期：</label>
-  <select id="day-select">
-    <option value="day1">8/16 - 巴黎</option>
-    <option value="day2">8/17 - 巴黎</option>
-    <option value="day3">8/18 - 蘇黎世</option>
-  </select>
+  <nav>
+    <button onclick="showTab('day-plan')">每日行程</button>
+    <button onclick="showTab('budget')">預算支出</button>
+  </nav>
 
-  <div class="day-details" id="details"></div>
+  <main>
+    <section id="day-plan" class="tab active">
+      <div class="day">
+        <h2>Day 1</h2>
+        <div class="subtitle-wrapper">
+          <p class="subtitle">台北/巴黎</p>
+          <div class="bg-accent"></div>
+        </div>
+
+        <div class="image-gallery">
+          <div class="image-item">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f5/Sainte_chapelle_-_Upper_level.jpg" alt="聖禮拜堂">
+            <p class="sight-title">聖禮拜堂 Sainte-Chapelle</p>
+            <p class="sight-desc">以其華麗的彩繪玻璃窗聞名，是巴黎最令人驚豔的哥德式建築之一。</p>
+          </div>
+          <div class="image-item">
+            <img src="https://cdn.britannica.com/49/82649-050-43C69550/Gargoyles-cathedral-E-E-Viollet-le-Duc-Notre-Dame-de-Paris.jpg" alt="巴黎聖母院">
+            <p class="sight-title">巴黎聖母院 Notre-Dame de Paris</p>
+            <p class="sight-desc">天主教巴黎總教區的主教座堂，更是雨果小說「鐘樓怪人」的主要舞台。雖然在2019的一場大火中幾乎全毀，不過經五年重建後已重新開放。</p>
+          </div>
+          <div class="image-item">
+            <img src="https://wanderyourway.com/wp-content/uploads/2020/09/2020-Paris-600.jpg" alt="橘園美術館">
+            <p class="sight-title">橘園美術館 Musée de l'Orangerie</p>
+            <p class="sight-desc">收藏著許多莫內、塞尚等印象派大師的作品，尤其是莫內的睡蓮展廳讓人驚嘆，是不可錯過的藝術殿堂。</p>
+          </div>
+        </div>
+
+        <div class="itinerary">
+          <ul>
+            <li>7:30 抵達巴黎 CDG 機場</li>
+            <li>10:00 飯店放行李（Villa M）</li>
+            <li>11:30 聖禮拜堂（需預約，€13）</li>
+            <li>14:00 橘園美術館（€12.5）</li>
+          </ul>
+          <div class="info">
+            <p><strong>餐食：</strong>早餐 ✘ 午餐 ✘ 晚餐 🍽️ 法式套餐</p>
+            <p><strong>住宿：</strong>Villa M, 巴黎</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="budget" class="tab">
+      <h2>預算支出</h2>
+      <p>這裡可以放支出表格、圖表或總金額統計</p>
+    </section>
+  </main>
 
   <script>
-    const itinerary = {
-      day1: [
-        "7:30 抵達巴黎 CDG 機場",
-        "10:00 飯店放行李",
-        "參觀聖禮拜堂 (€13)",
-        "參觀巴黎聖母院（免費）",
-        "逛莎士比亞書店",
-        "橘園美術館 (€12.5)"
-      ],
-      day2: [
-        "早餐後前往凡爾賽宮 (€21)",
-        "回飯店休息",
-        "下午前往艾菲爾鐵塔（€23.1~36.1）",
-        "夜間燈光秀觀賞"
-      ],
-      day3: [
-        "9:50~14:26 搭車前往蘇黎世",
-        "逛 Bahnhofstrasse 商店街",
-        "漫步利馬特河、參觀聖母大教堂與大教堂橋",
-        "住宿 Hotel City Zürich"
-      ]
-    };
-
-    const select = document.getElementById("day-select");
-    const details = document.getElementById("details");
-
-    function renderDay(day) {
-      const list = itinerary[day];
-      details.innerHTML = `<ul>${list.map(item => `<li>${item}</li>`).join("")}</ul>`;
+    function showTab(tabId) {
+      document.querySelectorAll('.tab').forEach(tab => {
+        tab.classList.remove('active');
+      });
+      document.getElementById(tabId).classList.add('active');
     }
-
-    select.addEventListener("change", e => {
-      renderDay(e.target.value);
-    });
-
-    renderDay("day1"); // 預設顯示 Day 1
   </script>
 </body>
 </html>
