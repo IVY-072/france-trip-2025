@@ -176,15 +176,114 @@
       line-height: 1.4;
       margin-top: 1.5rem;
     }
-    .itinerary ul {
-      margin-top: 3rem;
-      padding-left: 1.2rem;
-      color: #4f4f4f;
-    }
     .info {
-      margin-top: 2rem;
-      font-size: 0.95rem;
-      color: #333;
+      display: flex;
+      align-items: stretch;
+      gap: 3rem;
+      position: relative;
+      padding-left: 3rem;
+      font-family: 'Noto Serif TC', serif;
+      margin-top: 1rem;
+    }
+    .info-itinerary {
+      display: flex;
+      align-items: stretch;
+      gap: 3.5rem;
+      position: relative;
+      width: 55%
+    }
+    .itinerary-label {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    .itinerary-label img {
+      width: 80px;
+      height: 80px;
+      margin-top: 1.5rem;
+      margin-bottom: -1rem;
+    }
+    .itinerary-label p {
+      font-size: 1.1rem;
+      color: #8f613e;
+      font-weight: 400;
+      letter-spacing: 2.5px;
+    }
+    .itinerary-content {
+    }
+    .itinerary-content p {
+      font-size: 1.07rem;
+      color: #4f4f4f;
+      line-height: 2rem;
+      font-weight: 350;
+    }
+    .info-divider {
+      width: 0.5px;
+      background-color: #D3C8BF;
+      margin: 2rem 0rem;
+    }
+    .info-others {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      width: 45%;
+    }
+    .others-food {
+      display: flex;
+      align-items: stretch;
+      gap: 3rem;
+      position: relative;
+    }
+    .food-label {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    .food-label p {
+      font-size: 1.1rem;
+      color: #8f613e;
+      font-weight: 400;
+      letter-spacing: 2.5px;
+    }
+    .food-content {
+    }
+    .food-content p {
+      font-size: 1rem;
+      color: #4f4f4f;
+      line-height: 1.7rem;
+      font-weight: 330;
+    }
+    .others-hotel {
+      display: flex;
+      align-items: stretch;
+      gap: 3rem;
+      position: relative;
+    }
+    .hotel-label {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    .hotel-label p {
+      font-size: 1.1rem;
+      color: #8f613e;
+      font-weight: 400;
+      letter-spacing: 2.5px;
+    }
+    .hotel-content {
+    }
+    .hotel-content p {
+      font-size: 1rem;
+      color: #4f4f4f;
+      line-height: 1.7rem;
+      font-weight: 330;
     }
   </style>
 </head>
@@ -226,19 +325,44 @@
           </div>
         </div>
 
-        <div class="itinerary">
-          <ul>
-            <li>7:30 抵達巴黎 CDG 機場</li>
-            <li>10:00 飯店放行李（Villa M）</li>
-            <li>11:30 聖禮拜堂（需預約，€13）</li>
-            <li>14:00 橘園美術館（€12.5）</li>
-          </ul>
-          <div class="info">
-            <p><strong>餐食：</strong>早餐 ✘ 午餐 ✘ 晚餐 🍽️ 法式套餐</p>
-            <p><strong>住宿：</strong>Villa M, 巴黎</p>
+        <div class="info">
+          <div class="info-itinerary">
+            <div class="itinerary-label">
+              <img src="https://cdn-icons-png.flaticon.com/512/6491/6491443.png" alt="行程圖示">
+              <p>行程總覽</p>
+            </div>
+            <div class="itinerary-content">
+              <p>07:30 抵達巴黎 CDG 機場<br>
+                 10:00 飯店放行李<br>
+                 11:00 聖禮拜堂<br>
+                 12:00 巴黎聖母院<br>
+                 14:30 莎士比亞書店<br>
+                 15:30 橘園美術館</p>
+            </div>
+          </div>
+          <div class="info-divider"></div>
+          <div class="info-others">
+            <div class="others-food">
+              <div class="food-label">
+                <p>餐食</p>
+              </div>
+              <div class="food-content">
+                <p>早餐：飛機上<br>
+                   午餐：法式料理<br>
+                   晚餐：法式料理</p>
+              </div>
+            </div>
+            <div class="others-hotel">
+              <div class="hotel-label">
+                <p>飯店</p>
+              </div>
+              <div class="hotel-content">
+                <p>4 星 Villa M<br>
+                   高級雙人房</p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
     </section>
 
     <section id="budget" class="tab">
