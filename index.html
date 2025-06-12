@@ -80,6 +80,15 @@
       text-decoration: none;
       color: #444;
     }
+
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    
+    
     #nav-trigger {
       height: 1px;
       margin-bottom: -1px;
@@ -123,6 +132,7 @@
       height: 1px;
     }
 
+
     /*天數導航*/
     .day-nav {
       position: fixed;
@@ -144,7 +154,7 @@
       font-size: 0.75rem;
       font-weight: 300;
       letter-spacing: 0.7px;
-      gap: 0.8rem;
+      gap: 0.6rem;
     }
     .day-dot {
       width: 10px;
@@ -372,6 +382,57 @@
       line-height: 1.7rem;
       font-weight: 330;
     }
+
+    
+    
+    
+    
+    @media (max-width: 768px) {
+
+      .day {
+        padding-left: 1rem;
+      }
+
+      .image-gallery {
+        padding: 0 1rem;
+        gap: 1rem;
+      }
+    
+      .image-item {
+        max-width: 80%;
+      }
+    
+      .info {
+        flex-direction: column;
+        padding-left: 1rem;
+      }
+    
+      .info-itinerary, .info-others {
+        width: 100%;
+      }
+    
+      .bg-accent {
+        width: 100%;
+        right: 0;
+        border-radius: 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 1rem;
+      }
+    
+      nav button {
+        font-size: 1rem;
+      }
+    }
+
+
+
+    
   </style>
 </head>
 <body>
@@ -390,80 +451,95 @@
     <a href="#day1" class="day-link"><div class="day-dot"></div><span>Day 1</span></a>
     <a href="#day2" class="day-link"><div class="day-dot"></div><span>Day 2</span></a>
   </div>
+
+  <div class="container">
+    <main>
+      <section id="day1" class="tab active observe-day">
+        <div id="day-trigger"></div>
+        <div class="day observe-day">
+          <h2 id="day1">Day 1</h2>
+          <div class="subtitle-wrapper">
+            <p class="subtitle">台北/巴黎</p>
+            <div class="bg-accent"></div>
+          </div>
   
-  <main>
-    <section id="day-plan" class="tab active">
-      <div id="day-trigger"></div>
-      <div class="day observe-day">
-        <h2 id="day1">Day 1</h2>
-        <div class="subtitle-wrapper">
-          <p class="subtitle">台北/巴黎</p>
-          <div class="bg-accent"></div>
-        </div>
+          <div class="image-gallery">
+            <div class="image-item">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/f/f5/Sainte_chapelle_-_Upper_level.jpg" alt="聖禮拜堂">
+              <p class="sight-title">聖禮拜堂 Sainte-Chapelle</p>
+              <p class="sight-desc">以其華麗的彩繪玻璃窗聞名，是巴黎最令人驚豔的哥德式建築之一。</p>
+            </div>
+            <div class="image-item">
+              <img src="https://cdn.britannica.com/49/82649-050-43C69550/Gargoyles-cathedral-E-E-Viollet-le-Duc-Notre-Dame-de-Paris.jpg" alt="巴黎聖母院">
+              <p class="sight-title">巴黎聖母院 Notre-Dame de Paris</p>
+              <p class="sight-desc">天主教巴黎總教區的主教座堂，更是雨果小說「鐘樓怪人」的主要舞台。雖然在2019的一場大火中幾乎全毀，不過經五年重建後已重新開放。</p>
+            </div>
+            <div class="image-item">
+              <img src="https://wanderyourway.com/wp-content/uploads/2020/09/2020-Paris-600.jpg" alt="橘園美術館">
+              <p class="sight-title">橘園美術館 Musée de l'Orangerie</p>
+              <p class="sight-desc">收藏著許多莫內、塞尚等印象派大師的作品，尤其是莫內的睡蓮展廳讓人驚嘆，是不可錯過的藝術殿堂。</p>
+            </div>
+          </div>
+  
+          <div class="info">
+            <div class="info-itinerary">
+              <div class="itinerary-label">
+                <img src="https://cdn-icons-png.flaticon.com/512/6491/6491443.png" alt="行程圖示">
+                <p>行程總覽</p>
+              </div>
+              <div class="itinerary-content">
+                <p>07:30 抵達巴黎 CDG 機場<br>
+                   10:00 飯店放行李<br>
+                   11:00 聖禮拜堂<br>
+                   12:00 巴黎聖母院<br>
+                   14:30 莎士比亞書店<br>
+                   15:30 橘園美術館</p>
+              </div>
+            </div>
+            <div class="info-divider"></div>
+            <div class="info-others">
+              <div class="others-food">
+                <div class="food-label">
+                  <p>餐食</p>
+                </div>
+                <div class="food-content">
+                  <p>早餐：飛機上<br>
+                     午餐：法式料理<br>
+                     晚餐：法式料理</p>
+                </div>
+              </div>
+              <div class="others-hotel">
+                <div class="hotel-label">
+                  <p>飯店</p>
+                </div>
+                <div class="hotel-content">
+                  <p>4 星 Villa M<br>
+                     高級雙人房</p>
+                </div>
+              </div>
+            </div>
+          </div>
+      </section>
 
-        <div class="image-gallery">
-          <div class="image-item">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f5/Sainte_chapelle_-_Upper_level.jpg" alt="聖禮拜堂">
-            <p class="sight-title">聖禮拜堂 Sainte-Chapelle</p>
-            <p class="sight-desc">以其華麗的彩繪玻璃窗聞名，是巴黎最令人驚豔的哥德式建築之一。</p>
-          </div>
-          <div class="image-item">
-            <img src="https://cdn.britannica.com/49/82649-050-43C69550/Gargoyles-cathedral-E-E-Viollet-le-Duc-Notre-Dame-de-Paris.jpg" alt="巴黎聖母院">
-            <p class="sight-title">巴黎聖母院 Notre-Dame de Paris</p>
-            <p class="sight-desc">天主教巴黎總教區的主教座堂，更是雨果小說「鐘樓怪人」的主要舞台。雖然在2019的一場大火中幾乎全毀，不過經五年重建後已重新開放。</p>
-          </div>
-          <div class="image-item">
-            <img src="https://wanderyourway.com/wp-content/uploads/2020/09/2020-Paris-600.jpg" alt="橘園美術館">
-            <p class="sight-title">橘園美術館 Musée de l'Orangerie</p>
-            <p class="sight-desc">收藏著許多莫內、塞尚等印象派大師的作品，尤其是莫內的睡蓮展廳讓人驚嘆，是不可錯過的藝術殿堂。</p>
+
+      <section id="day2" class="tab observe-day">
+        <div class="day observe-day">
+          <h2 id="day2">Day 2</h2>
+          <div class="subtitle-wrapper">
+            <p class="subtitle">巴黎－凡爾賽宮、艾菲爾鐵塔</p>
+            <div class="bg-accent"></div>
           </div>
         </div>
+      </section>
 
-        <div class="info">
-          <div class="info-itinerary">
-            <div class="itinerary-label">
-              <img src="https://cdn-icons-png.flaticon.com/512/6491/6491443.png" alt="行程圖示">
-              <p>行程總覽</p>
-            </div>
-            <div class="itinerary-content">
-              <p>07:30 抵達巴黎 CDG 機場<br>
-                 10:00 飯店放行李<br>
-                 11:00 聖禮拜堂<br>
-                 12:00 巴黎聖母院<br>
-                 14:30 莎士比亞書店<br>
-                 15:30 橘園美術館</p>
-            </div>
-          </div>
-          <div class="info-divider"></div>
-          <div class="info-others">
-            <div class="others-food">
-              <div class="food-label">
-                <p>餐食</p>
-              </div>
-              <div class="food-content">
-                <p>早餐：飛機上<br>
-                   午餐：法式料理<br>
-                   晚餐：法式料理</p>
-              </div>
-            </div>
-            <div class="others-hotel">
-              <div class="hotel-label">
-                <p>飯店</p>
-              </div>
-              <div class="hotel-content">
-                <p>4 星 Villa M<br>
-                   高級雙人房</p>
-              </div>
-            </div>
-          </div>
-        </div>
-    </section>
-
-    <section id="budget" class="tab">
-      <h2>預算支出</h2>
-      <p>這裡可以放支出表格、圖表或總金額統計</p>
-    </section>
-  </main>
+      
+  
+      <section id="budget" class="tab">
+        <h2>預算支出</h2>
+        <p>這裡可以放支出表格、圖表或總金額統計</p>
+      </section>
+    </main>
+  </div>
 
   <main>
     <section id="day-plan" class="tab active">
