@@ -27,6 +27,7 @@
       align-items: center;
       text-align: center;
       position: relative;
+      margin-bottom: 3rem;
     }
     header h1 {
       margin: 0;
@@ -40,13 +41,18 @@
       letter-spacing: 3px;
       margin-top: 0.5rem;
     }
+
+    /*導覽列*/
     nav {
       display: flex;
       justify-content: flex-start;
       align-items: center;
       gap: 1rem;
-      padding: 4rem 4rem 2rem;
+      padding: 1rem 4rem 1rem 4rem;
       background-color: white;
+      position: sticky;
+      top: 0;
+      z-index: 999;
     }
     nav button {
       background: none;
@@ -61,10 +67,6 @@
       transition: color 0.3s ease;
       position: relative;
     }
-    nav button:hover {
-      text-decoration: none;
-      color: #444;
-    }
     nav button:not(:last-child)::after {
       content: "|";
       color: #D3C8BF;
@@ -74,6 +76,18 @@
       transform: translateY(-50%);
       font-size: 1.2rem;
     }
+    nav button:hover {
+      text-decoration: none;
+      color: #444;
+    }
+    #nav-trigger {
+      height: 1px;
+      margin-bottom: -1px;
+    }
+    #navbar.scrolled {
+      border-bottom: 1px solid rgba(211, 200, 191, 0.5);
+    }
+    
     .tab {
       display: none;
       padding: 2rem;
@@ -97,7 +111,59 @@
       font-family: 'Playfair Display', serif;
       font-size: 4rem;
       z-index: 1;
+      opacity: 0;
+      transform: translateX(-100px);
+      transition: opacity 1s ease, transform 1s ease;
     }
+    .day h2.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    #day-trigger {
+      height: 1px;
+    }
+
+    /*天數導航*/
+    .day-nav {
+      position: fixed;
+      top: 50%;
+      left: 1rem;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      z-index: 999;
+      gap: 1rem;
+    }
+    .day-nav a{
+      text-decoration: none;
+      color: #626161;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      font-size: 0.75rem;
+      font-weight: 300;
+      letter-spacing: 0.7px;
+      gap: 0.8rem;
+    }
+    .day-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 1px solid #b69e89;
+      background-color: transparent;
+    }
+    .day-dot.active {
+      background-color: #b69e89
+    }
+    #dayNav {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    #dayNav.visible {
+      opacity: 1;
+    }
+    
     .subtitle {
       margin-top: -2rem;
       margin-bottom: 2rem;
@@ -131,6 +197,13 @@
       position: relative;
       width: 100vw;
       max-width: 100%;
+      opacity: 0;
+      transform: translateX(-100px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+    .subtitle-wrapper.visible {
+      opacity: 1;
+      transform: translateX(0);
     }
     .bg-accent {
       content: "";
@@ -152,6 +225,13 @@
       margin-top: 5rem;
       width: 100vw;
       box-sizing: border-box;
+      opacity: 0;
+      transform: translateX(100px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+    .image-gallery.visible {
+      opacity: 1;
+      transform: translateX(0);
     }
     .image-item {
       flex: 0 0 auto;
@@ -184,6 +264,13 @@
       padding-left: 3rem;
       font-family: 'Noto Serif TC', serif;
       margin-top: 1rem;
+      opacity: 0;
+      transform: translateX(-100px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+    .info.visible {
+      opacity: 1;
+      transform: translateX(0);
     }
     .info-itinerary {
       display: flex;
@@ -293,15 +380,22 @@
     <p>漫遊巴黎花都・宏覽瑞士群山</p>
   </header>
 
-  <nav>
+  <div id="nav-trigger"></div>
+  <nav id="navbar">
     <button onclick="showTab('day-plan')">每日行程</button>
     <button onclick="showTab('budget')">預算支出</button>
   </nav>
 
+  <div class="day-nav" id="dayNav">
+    <a href="#day1" class="day-link"><div class="day-dot"></div><span>Day 1</span></a>
+    <a href="#day2" class="day-link"><div class="day-dot"></div><span>Day 2</span></a>
+  </div>
+  
   <main>
     <section id="day-plan" class="tab active">
-      <div class="day">
-        <h2>Day 1</h2>
+      <div id="day-trigger"></div>
+      <div class="day observe-day">
+        <h2 id="day1">Day 1</h2>
         <div class="subtitle-wrapper">
           <p class="subtitle">台北/巴黎</p>
           <div class="bg-accent"></div>
@@ -371,6 +465,20 @@
     </section>
   </main>
 
+  <main>
+    <section id="day-plan" class="tab active">
+      <div class="day observe-day">
+        <h2 id="day2">Day 2</h2>
+        <div class="subtitle-wrapper">
+          <p class="subtitle">巴黎－凡爾賽宮、艾菲爾鐵塔</p>
+          <div class="bg-accent"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  
+
   <script>
     function showTab(tabId) {
       document.querySelectorAll('.tab').forEach(tab => {
@@ -378,6 +486,118 @@
       });
       document.getElementById(tabId).classList.add('active');
     }
+
+    const navbar = document.getElementById('navbar');
+    const trigger = document.getElementById('nav-trigger');
+    const dayNav = document.getElementById('dayNav');
+    const firstTrigger = document.getElementById('day-trigger');
+    
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          navbar.classList.remove('scrolled');
+        } else {
+          navbar.classList.add('scrolled');
+        }
+      },
+      { threshold: 0 }
+    );
+    observer.observe(trigger);
+
+
+    const navbarHeight = navbar.getBoundingClientRect().height;
+    const dayObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) {
+          dayNav.classList.add('visible');
+        } else {
+          dayNav.classList.remove('visible');
+        }
+      },
+      {
+        threshold: 0,
+        rootMargin: `-${navbarHeight}px 0px 0px 0px`
+      }
+    );
+    dayObserver.observe(firstTrigger);
+
+    
+    document.querySelectorAll('.day-link').forEach(link => {
+      link.addEventListener('click', function() {
+        document.querySelectorAll('.day-dot').forEach(dot => {
+          dot.classList.remove('active');
+        });
+        this.querySelector('.day-dot').classList.add('active');
+      });
+    });
+
+    
+    /*左滑或右滑入頁面*/
+
+    document.querySelectorAll('.day h2').forEach(dayh2 => {
+
+      const dayh2Observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            dayh2.classList.add('visible');
+          } else {
+            dayh2.classList.remove('visible');
+          }
+        },
+        { threshold: 0.2 }
+      );
+      dayh2Observer.observe(dayh2);
+    });
+
+
+
+    document.querySelectorAll('.subtitle-wrapper').forEach(subtitleWrapper => {
+
+      const subtitleWrapperObserver = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            subtitleWrapper.classList.add('visible');
+          } else {
+            subtitleWrapper.classList.remove('visible');
+          }
+        },
+        { threshold: 0.2 }
+      );
+      subtitleWrapperObserver.observe(subtitleWrapper);
+    });
+
+
+    document.querySelectorAll('.image-gallery').forEach(imageGallery => {
+
+      const imageGalleryObserver = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            imageGallery.classList.add('visible');
+          } else {
+            imageGallery.classList.remove('visible');
+          }
+        },
+        { threshold: 0.2 }
+      );
+      imageGalleryObserver.observe(imageGallery);
+    });
+
+
+    document.querySelectorAll('.info').forEach(info => {
+
+      const infoObserver = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            info.classList.add('visible');
+          } else {
+            info.classList.remove('visible');
+          }
+        },
+        { threshold: 0.2 }
+      );
+      infoObserver.observe(info);
+    });
+
   </script>
 </body>
 </html>
