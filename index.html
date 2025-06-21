@@ -3,404 +3,193 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>法瑞・15日</title>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Noto Sans TC', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #ffffff;
-      letter-spacing: 1.5px;
-      font-weight: 300;
-      position: relative;
-      overflow-x: hidden;
-    }
-    header {
-      background: url('https://www.swisstours.com/images/Mountains/lucerne-and-titlis-snow-experience-medium1.webp') center/cover no-repeat;
-      color: white;
-      height: 50vh;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      position: relative;
-      margin-bottom: 3rem;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 3rem;
-      font-family: 'Noto Serif TC', serif;
-      letter-spacing: 6px;
-      font-weight: 700;
-    }
-    header p {
-      font-size: 1rem;
-      letter-spacing: 3px;
-      margin-top: 0.5rem;
-    }
-
-    /*導覽列*/
-    nav {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      gap: 1rem;
-      padding: 1rem 4rem 1rem 4rem;
-      background-color: white;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
-    nav button {
-      background: none;
-      color: #7B7B7B;
-      border: none;
-      padding: 0.5rem 1rem;
-      font-family: 'Noto Serif TC', serif;
-      font-size: 1.25rem;
-      font-weight: 500;
-      letter-spacing: 1.2px;
-      cursor: pointer;
-      transition: color 0.3s ease;
-      position: relative;
-    }
-    nav button:not(:last-child)::after {
-      content: "|";
-      color: #D3C8BF;
-      position: absolute;
-      right: -0.8rem;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 1.2rem;
-    }
-    nav button:hover {
-      text-decoration: none;
-      color: #444;
-    }
-    
-    #nav-trigger {
-      height: 1px;
-      margin-bottom: -1px;
-    }
-    #navbar.scrolled {
-      border-bottom: 1px solid rgba(211, 200, 191, 0.5);
-    }
-    
-    .tab {
-      display: none;
-      padding: 2rem;
-    }
-    .active {
-      display: block;
-    }
-    .day {
-      background: transparent;
-      padding-left: 3rem;
-      box-sizing: border-box;
-      margin-bottom: 1.5rem;
-      border-radius: 0;
-      box-shadow: none;
-      position: relative;
-      z-index: 1;
-    }
-    .day h2 {
-      margin-top: 0;
-      color: #626161;
-      font-family: 'Playfair Display', serif;
-      font-size: 4rem;
-      z-index: 1;
-      opacity: 0;
-      transform: translateX(-100px);
-      transition: opacity 1s ease, transform 1s ease;
-    }
-    .day h2.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
-    #day-trigger {
-      height: 1px;
-    }
-
-
-    /*天數導航*/
-    .day-nav {
-      position: fixed;
-      top: 50%;
-      left: 1rem;
-      transform: translateY(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      z-index: 999;
-      gap: 1rem;
-    }
-    .day-nav a{
-      text-decoration: none;
-      color: #626161;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      font-size: 0.75rem;
-      font-weight: 300;
-      letter-spacing: 0.7px;
-      gap: 0.6rem;
-    }
-    .day-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      border: 1px solid #b69e89;
-      background-color: transparent;
-    }
-    .day-dot.active {
-      background-color: #b69e89
-    }
-    #dayNav {
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-    #dayNav.visible {
-      opacity: 1;
-    }
-    
-    .subtitle {
-      margin-top: -2rem;
-      margin-bottom: 2rem;
-      color: #626161;
-      font-family: 'Noto Sans TC', serif;
-      font-size: 1.2rem;
-      letter-spacing: 1.4px;
-      padding-bottom: 1.5rem;
-      display: block;
-      position: relative;
-      width: 100%;
-      max-width: 50rem;
-      border-bottom: none;
-      z-index: 0;
-    }
-    .subtitle::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: #ffffff;
-      border-right: 1px solid #D3C8BF;
-      border-bottom: 1px solid #D3C8BF;
-      border-left: 1px solid transparent;
-      border-top: 1px solid transparent;
-      z-index: -1;
-    }
-    .subtitle-wrapper {
-      position: relative;
-      width: 100%;
-      max-width: 100%;
-      opacity: 0;
-      transform: translateX(-100px);
-      transition: opacity 1s ease, transform 1s ease;
-    }
-    .subtitle-wrapper.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
-    .bg-accent {
-      content: "";
-      position: absolute;
-      top: 1rem;
-      right: -3rem;
-      width: 50vw;
-      height: 16.5rem;
-      background-color: #F1EDEA;
-      z-index: -2;
-      border-radius: 3rem 0 0 3rem;
-      pointer-events: none;
-    }
-    .image-gallery {
-      display: flex;
-      overflow-x: auto;
-      gap: 3.7rem;
-      padding: 0 9rem 0 3rem;
-      margin-top: 5rem;
-      width: 100vw;
-      box-sizing: border-box;
-      opacity: 0;
-      transform: translateX(100px);
-      transition: opacity 1s ease, transform 1s ease;
-    }
-    .image-gallery.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
-    .image-item {
-      flex: 0 0 auto;
-      max-width: 35%;
-    }
-    .image-item img {
-      width: 100%;
-      border-radius: 25px 25px 0 25px;
-      height: 200px;
-    }
-    .sight-title {
-      font-size: 1.05rem;
-      color: #8F613E;
-      font-weight: 400;
-      margin-top: 1.2rem;
-    }
-    .sight-desc {
-      font-size: 0.95rem;
-      color: #7b7b7b;
-      max-width: 40ch;
-      font-weight: 100;
-      line-height: 1.4;
-      margin-top: 1.5rem;
-    }
-    .info {
-      display: flex;
-      align-items: stretch;
-      gap: 3rem;
-      position: relative;
-      padding-left: 3rem;
-      font-family: 'Noto Serif TC', serif;
-      margin-top: 1rem;
-      opacity: 0;
-      transform: translateX(-100px);
-      transition: opacity 1s ease, transform 1s ease;
-    }
-    .info.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
-    .info-itinerary {
-      display: flex;
-      align-items: stretch;
-      gap: 3.5rem;
-      position: relative;
-      width: 55%
-    }
-    .itinerary-label {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-    }
-    .itinerary-label img {
-      width: 80px;
-      height: 80px;
-      margin-top: 1.5rem;
-      margin-bottom: -1rem;
-    }
-    .itinerary-label p {
-      font-size: 1.1rem;
-      color: #8f613e;
-      font-weight: 400;
-      letter-spacing: 2.5px;
-    }
-    .itinerary-content {
-    }
-    .itinerary-content p {
-      font-size: 1.07rem;
-      color: #4f4f4f;
-      line-height: 2rem;
-      font-weight: 350;
-    }
-    .info-divider {
-      width: 0.5px;
-      background-color: #D3C8BF;
-      margin: 2rem 0rem;
-    }
-    .info-others {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      width: 45%;
-    }
-    .others-food {
-      display: flex;
-      align-items: stretch;
-      gap: 3rem;
-      position: relative;
-    }
-    .food-label {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-    }
-    .food-label p {
-      font-size: 1.1rem;
-      color: #8f613e;
-      font-weight: 400;
-      letter-spacing: 2.5px;
-    }
-    .food-content {
-    }
-    .food-content p {
-      font-size: 1rem;
-      color: #4f4f4f;
-      line-height: 1.7rem;
-      font-weight: 330;
-    }
-    .others-hotel {
-      display: flex;
-      align-items: stretch;
-      gap: 3rem;
-      position: relative;
-    }
-    .hotel-label {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-    }
-    .hotel-label p {
-      font-size: 1.1rem;
-      color: #8f613e;
-      font-weight: 400;
-      letter-spacing: 2.5px;
-    }
-    .hotel-content {
-    }
-    .hotel-content p {
-      font-size: 1rem;
-      color: #4f4f4f;
-      line-height: 1.7rem;
-      font-weight: 330;
-    }
-  </style>
+  <title>【法國瑞士】珍藏16日 | 哈比旅遊</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Noto+Serif+TC:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
-
-
-
 <body>
-  <header>
-    <h1>法瑞・15日</h1>
-    <p>漫遊巴黎花都・宏覽瑞士群山</p>
+  <header class="header">
+    <div class="header-title">法國瑞士・珍藏16日</div>
+    <div class="header-subtitle">漫遊奢華凡爾賽・心醉仙境策馬特</div>
   </header>
 
+  <!--導覽列-->
   <div id="nav-trigger"></div>
   <nav id="navbar">
-    <button onclick="showTab('day-plan')">每日行程</button>
-    <button onclick="showTab('budget')">預算支出</button>
+    <button onclick="showTab('group')">團體資訊</button>
+    <button onclick="showTab('itinerary')">每日行程</button>
+    <button id="agencyButton" class="agency">哈比旅行社</button>
   </nav>
-
-  <div class="day-nav" id="dayNav">
-    <a href="#day1" class="day-link"><div class="day-dot"></div><span>Day 1</span></a>
-    <a href="#day2" class="day-link"><div class="day-dot"></div><span>Day 2</span></a>
+  <div id="agencyModal" class="modal">
+    <span class="lol">哈囉胖驢</span>
+    <img src="images/eeyore.png" alt="agency" />
+    <span class="lol">比他還笨</span>
   </div>
 
-  
   <main>
-    <section id="day-plan" class="tab active observe-day">
-      <div id="day-trigger"></div>
-      <div class="day observe-day">
+    <!--團體資訊-->
+    <section id="group" class="tab active">
+      <div class="group-title">
+        <div class="group-title-ch">團體資訊</div>
+        <div class="group-title-eng-wrapper">
+          <div class="group-title-eng">Tours Information</div>
+          <div class="group-title-underline"></div>
+        </div>
+      </div>
+      <div class="tour-info">
+        <div class="tour-column">
+          <div class="tour-subtitle">出發日期</div>
+          <div class="tour-content">2025/08/15 (五)</div>
+          <div class="tour-subtitle">狀態</div>
+          <div class="tour-status-wrapper">
+            <span class="tour-status">確定成行</span>
+            <span class="tour-status">已額滿</span>
+          </div>
+        </div>
+        <div class="tour-column">
+          <div class="tour-subtitle">抵台日期</div>
+          <div class="tour-content">2025/08/30 (六)</div>
+          </div>
+        </div>
+      </div>
+      <div class="flight_highlight-title-wrapper">
+        <div class="flight_highlight-title">本次航班</div>
+        <div class="flight_highlight-title-line"></div>
+      </div>
+      <div class="flight-info">
+        <div class="flight-column">
+          <div class="flight-subtitle">去程</div>
+          <div class="flight-date">Day1 2025/08/15 (五)</div>
+          <div class="flight-airline">
+            <img src="images/eva-logo.png" class="airline-logo" alt="EVA Air"> 長榮航空 BR087
+          </div>
+          <div class="flight-route">
+            <div class="flight-segment">
+              <div class="city">TPE 台北</div>
+              <div class="time">23:30</div>
+            </div>
+            <div class="flight-duration">
+              <div class="duration-line"></div>
+              <div class="duration-time">14小時00分 直飛</div>
+              <div class="duration-line"></div>
+              <img src="images/plane.png" class="plane-icon" alt="plane">
+            </div>
+            <div class="flight-segment">
+              <div class="city">CDG 巴黎戴高樂</div>
+              <div class="time">7:30 (+1日)</div>
+            </div>
+          </div>
+        </div>
+        <div class="flight-column">
+          <div class="flight-subtitle">回程</div>
+          <div class="flight-date">Day16 2025/08/30 (六)</div>
+          <div class="flight-airline">
+            <img src="images/eva-logo.png" class="airline-logo" alt="EVA Air"> 長榮航空 BR088
+          </div>
+          <div class="flight-route">
+            <div class="flight-segment">
+              <div class="city">CDG 巴黎戴高樂</div>
+              <div class="time">11:20</div>
+            </div>
+            <div class="flight-duration">
+              <div class="duration-line"></div>
+              <div class="duration-time">13小時50分 直飛</div>
+              <div class="duration-line"></div>
+              <img src="images/plane.png" class="plane-icon" alt="plane">
+            </div>
+            <div class="flight-segment">
+              <div class="city">TPE 台北</div>
+              <div class="time">7:10 (+1日)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flight_highlight-title-wrapper">
+        <div class="flight_highlight-title">旅程精選</div>
+        <div class="flight_highlight-title-line"></div>
+      </div>
+      <div class="highlight-gallery">
+          <div class="highlight-segment">
+            <div class="wrapper">
+              <div class="title">飯店星等</div>
+              <div class="content">4星13晚 3星1晚</div>
+            </div>
+          </div>
+          <div class="highlight-segment">
+            <div class="wrapper">
+              <div class="title">連泊天數</div>
+              <div class="content">巴黎2天 + 琉森2天 + 格林德瓦2天 + 策馬特2天 + 巴黎4天</div>
+            </div>
+          </div>
+          <div class="highlight-segment">
+            <div class="wrapper">
+              <div class="title">美食</div>
+              <div class="content">當地精選料理（包含瑞士起司鍋、黑面羊料理）</div>
+            </div>
+          </div>
+      </div>
+      <div class="highlight-info">
+        <div class="highlight-column">
+          <div class="highlight-row">
+            <div class="highlight-subtitle">特殊景觀</div>
+            <div class="highlight-content">山水</div>
+            <div class="highlight-content">世界遺產</div>
+          </div>
+          <div class="highlight-row">
+            <div class="highlight-subtitle">旅遊焦點</div>
+            <div class="highlight-content">黃金景觀列車</div>
+            <div class="highlight-content">馬特洪峰山景房</div>
+          </div>
+        </div>
+        <div class="highlight-column">
+          <div class="highlight-row">
+            <div class="highlight-subtitle">遊覽體驗</div>
+            <div class="highlight-content">健行</div>
+            <div class="highlight-content">遊船</div>
+            <div class="highlight-content">纜車</div>
+            <div class="highlight-content">火車</div>
+            <div class="highlight-content">精品購物</div>
+          </div>
+          <div class="highlight-row">
+            <div class="highlight-subtitle">步行程度</div>
+            <div class="highlight-content">
+              <img src="images/footprint.png" class="highlight-footprint" alt="footprint">
+              <img src="images/footprint.png" class="highlight-footprint" alt="footprint">
+              <img src="images/footprint.png" class="highlight-footprint" alt="footprint">
+            </div>
+            <div class="highlight-content">(步行較多)</div>
+          </div>
+        </div>
+      </div>
+      <div class="focusing-wrapper">
+        <div class="focusing">Focusing</div>
+        <div class="focusing-line"></div>
+      </div>
+      <section id="highlight-video" class="highlight-video">
+        <video
+          src="videos/Luzern-Interlaken Express.mp4"
+          controls
+          loop
+          playsinline
+          class="inline-video"
+        >
+        </video>
+      </section>
+    </section>
+
+    
+    
+    <!--每日行程-->
+    <section id="itinerary" class="tab">
+
+      <!--天數導航-->
+      <div class="day-nav" id="dayNav">
+        <a href="#day1" class="day-link"><div class="day-dot"></div><span>Day 1</span></a>
+        <a href="#day2" class="day-link"><div class="day-dot"></div><span>Day 2</span></a>
+      </div>
+
+      <!--Day 1-->
+      <div class="day">
         <h2 id="day1">Day 1</h2>
         <div class="subtitle-wrapper">
           <p class="subtitle">台北/巴黎</p>
@@ -432,7 +221,7 @@
               <p>行程總覽</p>
             </div>
             <div class="itinerary-content">
-              <p>07:30 抵達巴黎 CDG 機場<br>
+              <p>07:30 抵達巴黎機場<br>
                  10:00 飯店放行李<br>
                  11:00 聖禮拜堂<br>
                  12:00 巴黎聖母院<br>
@@ -443,161 +232,34 @@
           <div class="info-divider"></div>
           <div class="info-others">
             <div class="others-food">
-              <div class="food-label">
-                <p>餐食</p>
-              </div>
+              <div class="food-label"><p>餐食</p></div>
               <div class="food-content">
-                <p>早餐：飛機上<br>
-                   午餐：法式料理<br>
-                   晚餐：法式料理</p>
+                <p>早餐：飛機上<br>午餐：法式料理<br>晚餐：法式料理</p>
               </div>
             </div>
             <div class="others-hotel">
-              <div class="hotel-label">
-                <p>飯店</p>
-              </div>
+              <div class="hotel-label"><p>飯店</p></div>
               <div class="hotel-content">
-                <p>4 星 Villa M<br>
-                   高級雙人房</p>
+                <p>4 星 Villa M<br>高級雙人房</p>
               </div>
             </div>
           </div>
         </div>
-      <div class="day observe-day">
+      </div>
+
+
+      <!--Day 2-->
+      <div class="day">
         <h2 id="day2">Day 2</h2>
         <div class="subtitle-wrapper">
           <p class="subtitle">巴黎－凡爾賽宮、艾菲爾鐵塔</p>
           <div class="bg-accent"></div>
         </div>
       </div>
+      
     </section>
+  </main>
 
-    <section id="budget" class="tab">
-      <h2>預算支出</h2>
-      <p>這裡可以放支出表格、圖表或總金額統計</p>
-    </section>
-  </main> 
-  
-
-  <script>
-    function showTab(tabId) {
-      document.querySelectorAll('.tab').forEach(tab => {
-        tab.classList.remove('active');
-      });
-      document.getElementById(tabId).classList.add('active');
-    }
-
-    const navbar = document.getElementById('navbar');
-    const trigger = document.getElementById('nav-trigger');
-    const dayNav = document.getElementById('dayNav');
-    const firstTrigger = document.getElementById('day-trigger');
-    
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          navbar.classList.remove('scrolled');
-        } else {
-          navbar.classList.add('scrolled');
-        }
-      },
-      { threshold: 0 }
-    );
-    observer.observe(trigger);
-
-
-    const navbarHeight = navbar.getBoundingClientRect().height;
-    const dayObserver = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting) {
-          dayNav.classList.add('visible');
-        } else {
-          dayNav.classList.remove('visible');
-        }
-      },
-      {
-        threshold: 0,
-        rootMargin: `-${navbarHeight}px 0px 0px 0px`
-      }
-    );
-    dayObserver.observe(firstTrigger);
-
-    
-    document.querySelectorAll('.day-link').forEach(link => {
-      link.addEventListener('click', function() {
-        document.querySelectorAll('.day-dot').forEach(dot => {
-          dot.classList.remove('active');
-        });
-        this.querySelector('.day-dot').classList.add('active');
-      });
-    });
-
-    
-    /*左滑或右滑入頁面*/
-
-    document.querySelectorAll('.day h2').forEach(dayh2 => {
-
-      const dayh2Observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            dayh2.classList.add('visible');
-          } else {
-            dayh2.classList.remove('visible');
-          }
-        },
-        { threshold: 0.2 }
-      );
-      dayh2Observer.observe(dayh2);
-    });
-
-
-
-    document.querySelectorAll('.subtitle-wrapper').forEach(subtitleWrapper => {
-
-      const subtitleWrapperObserver = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            subtitleWrapper.classList.add('visible');
-          } else {
-            subtitleWrapper.classList.remove('visible');
-          }
-        },
-        { threshold: 0.2 }
-      );
-      subtitleWrapperObserver.observe(subtitleWrapper);
-    });
-
-
-    document.querySelectorAll('.image-gallery').forEach(imageGallery => {
-
-      const imageGalleryObserver = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            imageGallery.classList.add('visible');
-          } else {
-            imageGallery.classList.remove('visible');
-          }
-        },
-        { threshold: 0.2 }
-      );
-      imageGalleryObserver.observe(imageGallery);
-    });
-
-
-    document.querySelectorAll('.info').forEach(info => {
-
-      const infoObserver = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            info.classList.add('visible');
-          } else {
-            info.classList.remove('visible');
-          }
-        },
-        { threshold: 0.2 }
-      );
-      infoObserver.observe(info);
-    });
-
-  </script>
+  <script src="js/main.js"></script>
 </body>
 </html>
