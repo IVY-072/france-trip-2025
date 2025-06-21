@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>【法國瑞士】珍藏16日 | 哈比旅遊</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Noto+Serif+TC:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-title">法國瑞士・珍藏16日</div>
+    <div class="header-subtitle">漫遊奢華凡爾賽・心醉仙境策馬特</div>
+  </header>
+
+  <!--導覽列-->
+  <div id="nav-trigger"></div>
+  <nav id="navbar">
+    <button onclick="showTab('group')">團體資訊</button>
+    <button onclick="showTab('itinerary')">每日行程</button>
+    <button id="agencyButton" class="agency">哈比旅行社</button>
+  </nav>
+  <div id="agencyModal" class="modal">
+    <span class="lol">哈囉胖驢</span>
+    <img src="images/eeyore.png" alt="agency" />
+    <span class="lol">比他還笨</span>
+  </div>
+
+  <main>
+    <!--團體資訊-->
+    <section id="group" class="tab active">
+      <div class="group-title">
+        <div class="group-title-ch">團體資訊</div>
+        <div class="group-title-eng-wrapper">
+          <div class="group-title-eng">Tours Information</div>
+          <div class="group-title-underline"></div>
+        </div>
+      </div>
+      <div class="tour-info">
+        <div class="tour-column">
+          <div class="tour-subtitle">出發日期</div>
+          <div class="tour-content">2025/08/15 (五)</div>
+          <div class="tour-subtitle">狀態</div>
+          <div class="tour-status-wrapper">
+            <span class="tour-status">確定成行</span>
+            <span class="tour-status">已額滿</span>
+          </div>
+        </div>
+        <div class="tour-column">
+          <div class="tour-subtitle">抵台日期</div>
+          <div class="tour-content">2025/08/30 (六)</div>
+          </div>
+        </div>
+      </div>
+      <div class="flight_highlight-title-wrapper">
+        <div class="flight_highlight-title">本次航班</div>
+        <div class="flight_highlight-title-line"></div>
+      </div>
+      <div class="flight-info">
+        <div class="flight-column">
+          <div class="flight-subtitle">去程</div>
+          <div class="flight-date">Day1 2025/08/15 (五)</div>
+          <div class="flight-airline">
+            <img src="images/eva-logo.png" class="airline-logo" alt="EVA Air"> 長榮航空 BR087
+          </div>
+          <div class="flight-route">
+            <div class="flight-segment">
+              <div class="city">TPE 台北</div>
+              <div class="time">23:30</div>
+            </div>
+            <div class="flight-duration">
+              <div class="duration-line"></div>
+              <div class="duration-time">14小時00分 直飛</div>
+              <div class="duration-line"></div>
+              <img src="images/plane.png" class="plane-icon" alt="plane">
+            </div>
+            <div class="flight-segment">
+              <div class="city">CDG 巴黎戴高樂</div>
+              <div class="time">7:30 (+1日)</div>
+            </div>
+          </div>
+        </div>
+        <div class="flight-column">
+          <div class="flight-subtitle">回程</div>
+          <div class="flight-date">Day16 2025/08/30 (六)</div>
+          <div class="flight-airline">
+            <img src="images/eva-logo.png" class="airline-logo" alt="EVA Air"> 長榮航空 BR088
+          </div>
+          <div class="flight-route">
+            <div class="flight-segment">
+              <div class="city">CDG 巴黎戴高樂</div>
+              <div class="time">11:20</div>
+            </div>
+            <div class="flight-duration">
+              <div class="duration-line"></div>
+              <div class="duration-time">13小時50分 直飛</div>
+              <div class="duration-line"></div>
+              <img src="images/plane.png" class="plane-icon" alt="plane">
+            </div>
+            <div class="flight-segment">
+              <div class="city">TPE 台北</div>
+              <div class="time">7:10 (+1日)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flight_highlight-title-wrapper">
+        <div class="flight_highlight-title">旅程精選</div>
+        <div class="flight_highlight-title-line"></div>
+      </div>
+      <div class="highlight-gallery">
+          <div class="highlight-segment">
+            <div class="wrapper">
+              <div class="title">飯店星等</div>
+              <div class="content">4星13晚 3星1晚</div>
+            </div>
+          </div>
+          <div class="highlight-segment">
+            <div class="wrapper">
+              <div class="title">連泊天數</div>
+              <div class="content">巴黎2天 + 琉森2天 + 格林德瓦2天 + 策馬特2天 + 巴黎4天</div>
+            </div>
+          </div>
+          <div class="highlight-segment">
+            <div class="wrapper">
+              <div class="title">美食</div>
+              <div class="content">當地精選料理（包含瑞士起司鍋、黑面羊料理）</div>
+            </div>
+          </div>
+      </div>
+      <div class="highlight-info">
+        <div class="highlight-column">
+          <div class="highlight-row">
+            <div class="highlight-subtitle">特殊景觀</div>
+            <div class="highlight-content">山水</div>
+            <div class="highlight-content">世界遺產</div>
+          </div>
+          <div class="highlight-row">
+            <div class="highlight-subtitle">旅遊焦點</div>
+            <div class="highlight-content">黃金景觀列車</div>
+            <div class="highlight-content">馬特洪峰山景房</div>
+          </div>
+        </div>
+        <div class="highlight-column">
+          <div class="highlight-row">
+            <div class="highlight-subtitle">遊覽體驗</div>
+            <div class="highlight-content">健行</div>
+            <div class="highlight-content">遊船</div>
+            <div class="highlight-content">纜車</div>
+            <div class="highlight-content">火車</div>
+            <div class="highlight-content">精品購物</div>
+          </div>
+          <div class="highlight-row">
+            <div class="highlight-subtitle">步行程度</div>
+            <div class="highlight-content">
+              <img src="images/footprint.png" class="highlight-footprint" alt="footprint">
+              <img src="images/footprint.png" class="highlight-footprint" alt="footprint">
+              <img src="images/footprint.png" class="highlight-footprint" alt="footprint">
+            </div>
+            <div class="highlight-content">(步行較多)</div>
+          </div>
+        </div>
+      </div>
+      <div class="focusing-wrapper">
+        <div class="focusing">Focusing</div>
+        <div class="focusing-line"></div>
+      </div>
+      <section id="highlight-video" class="highlight-video">
+        <video
+          src="videos/Luzern-Interlaken Express.mp4"
+          controls
+          loop
+          playsinline
+          class="inline-video"
+        >
+        </video>
+      </section>
+    </section>
+
+    
+    
+    <!--每日行程-->
+    <section id="itinerary" class="tab">
+
+      <!--天數導航-->
+      <div class="day-nav" id="dayNav">
+        <a href="#day1" class="day-link"><div class="day-dot"></div><span>Day 1</span></a>
+        <a href="#day2" class="day-link"><div class="day-dot"></div><span>Day 2</span></a>
+      </div>
+
+      <!--Day 1-->
+      <div class="day">
+        <h2 id="day1">Day 1</h2>
+        <div class="subtitle-wrapper">
+          <p class="subtitle">台北/巴黎</p>
+          <div class="bg-accent"></div>
+        </div>
+
+        <div class="image-gallery">
+          <div class="image-item">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f5/Sainte_chapelle_-_Upper_level.jpg" alt="聖禮拜堂">
+            <p class="sight-title">聖禮拜堂 Sainte-Chapelle</p>
+            <p class="sight-desc">以其華麗的彩繪玻璃窗聞名，是巴黎最令人驚豔的哥德式建築之一。</p>
+          </div>
+          <div class="image-item">
+            <img src="https://cdn.britannica.com/49/82649-050-43C69550/Gargoyles-cathedral-E-E-Viollet-le-Duc-Notre-Dame-de-Paris.jpg" alt="巴黎聖母院">
+            <p class="sight-title">巴黎聖母院 Notre-Dame de Paris</p>
+            <p class="sight-desc">天主教巴黎總教區的主教座堂，更是雨果小說「鐘樓怪人」的主要舞台。雖然在2019的一場大火中幾乎全毀，不過經五年重建後已重新開放。</p>
+          </div>
+          <div class="image-item">
+            <img src="https://wanderyourway.com/wp-content/uploads/2020/09/2020-Paris-600.jpg" alt="橘園美術館">
+            <p class="sight-title">橘園美術館 Musée de l'Orangerie</p>
+            <p class="sight-desc">收藏著許多莫內、塞尚等印象派大師的作品，尤其是莫內的睡蓮展廳讓人驚嘆，是不可錯過的藝術殿堂。</p>
+          </div>
+        </div>
+
+        <div class="info">
+          <div class="info-itinerary">
+            <div class="itinerary-label">
+              <img src="https://cdn-icons-png.flaticon.com/512/6491/6491443.png" alt="行程圖示">
+              <p>行程總覽</p>
+            </div>
+            <div class="itinerary-content">
+              <p>07:30 抵達巴黎機場<br>
+                 10:00 飯店放行李<br>
+                 11:00 聖禮拜堂<br>
+                 12:00 巴黎聖母院<br>
+                 14:30 莎士比亞書店<br>
+                 15:30 橘園美術館</p>
+            </div>
+          </div>
+          <div class="info-divider"></div>
+          <div class="info-others">
+            <div class="others-food">
+              <div class="food-label"><p>餐食</p></div>
+              <div class="food-content">
+                <p>早餐：飛機上<br>午餐：法式料理<br>晚餐：法式料理</p>
+              </div>
+            </div>
+            <div class="others-hotel">
+              <div class="hotel-label"><p>飯店</p></div>
+              <div class="hotel-content">
+                <p>4 星 Villa M<br>高級雙人房</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!--Day 2-->
+      <div class="day">
+        <h2 id="day2">Day 2</h2>
+        <div class="subtitle-wrapper">
+          <p class="subtitle">巴黎－凡爾賽宮、艾菲爾鐵塔</p>
+          <div class="bg-accent"></div>
+        </div>
+      </div>
+      
+    </section>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
