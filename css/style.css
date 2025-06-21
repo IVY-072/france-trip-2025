@@ -1,3 +1,25 @@
+/*各裝置版面設定*/
+.container {
+    display: grid;
+    grid-template-columns: repeat (auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+}
+
+/*手機版面*/
+@media (min-width: 600px) {
+    .navbar { display: flex; }
+}
+/*平板版面*/
+@media (min-width: 900px) {
+    .sidebar { display: block; }
+}
+/*桌機版面*/
+@media (min-width: 1200px) {
+    .container { max-width: 1140px; margin: 0 auto; }
+}
+
+
+/*頁面設計*/
 body {
     font-family: 'Noto Sans TC', sans-serif;
     margin: 0;
@@ -355,7 +377,7 @@ nav button:hover {
 /*旅程精選（內文）*/
 .highlight-gallery {
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
     padding-left: 3rem;
     margin-top: 2.5rem;
     margin-bottom: 5rem;
@@ -368,7 +390,7 @@ nav button:hover {
     padding: 1.5rem 3rem 1.5rem 3rem;
     flex: flex-start;
     display: inline-block;
-    white-space: nowrap;
+    white-space: normal;
 }
 
 .highlight-segment .wrapper {
@@ -518,8 +540,8 @@ nav button:hover {
     align-items: center;
     font-size: 0.75rem;
     font-weight: 300;
-    letter-spacing: 0.7px;
-    gap: 0.6rem;
+    letter-spacing: 0.5px;
+    gap: 0.5rem;
 }
 .day-dot {
     width: 10px;
@@ -601,9 +623,9 @@ nav button:hover {
     display: flex;
     overflow-x: auto;
     gap: 3.7rem;
-    padding: 0 9rem 0 3rem;
+    padding: 0 3rem 0 3rem;
     margin-top: 5rem;
-    width: 100vw;
+    width: 100%;
     box-sizing: border-box;
     opacity: 0;
     transform: translateX(100px);
