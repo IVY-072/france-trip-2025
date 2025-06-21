@@ -323,7 +323,8 @@ nav button:hover {
 .flight-route {
     margin-top: 1.5rem;
     display: flex;
-    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
 }
 
 .flight-segment {
@@ -337,12 +338,14 @@ nav button:hover {
     font-weight: 400;
     font-size: 0.9rem;
     color: #333;
+    white-space: nowrap;
 }
 
 .flight-segment .time {
     font-weight: 600;
     font-size: 0.9rem;
     color: #333;
+    white-space: nowrap;
 }
 
 .flight-duration {
@@ -377,7 +380,7 @@ nav button:hover {
 /*旅程精選（內文）*/
 .highlight-gallery {
     display: flex;
-    flex-direction: row;
+    overflow-x: auto;
     padding-left: 3rem;
     margin-top: 2.5rem;
     margin-bottom: 5rem;
@@ -406,10 +409,18 @@ nav button:hover {
     margin-bottom: 0.5rem;
 }
 
+.highlight-segment .content-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .highlight-segment .content {
     font-weight: 350;
     font-size: 0.95rem;
     color: #626161;
+    align-items: stretch;
 }
 
 .highlight-info {
@@ -540,8 +551,8 @@ nav button:hover {
     align-items: center;
     font-size: 0.75rem;
     font-weight: 300;
-    letter-spacing: 0.7px;
-    gap: 0.6rem;
+    letter-spacing: 0.5px;
+    gap: 0.5rem;
 }
 .day-dot {
     width: 10px;
@@ -623,9 +634,9 @@ nav button:hover {
     display: flex;
     overflow-x: auto;
     gap: 3.7rem;
-    padding: 0 9rem 0 3rem;
+    padding: 0 3rem 0 3rem;
     margin-top: 5rem;
-    width: 100vw;
+    width: 100%;
     box-sizing: border-box;
     opacity: 0;
     transform: translateX(100px);
