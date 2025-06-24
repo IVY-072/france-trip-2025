@@ -37,7 +37,6 @@ body {
     background-color: #ffffff;
     letter-spacing: 1.5px;
     position: relative;
-    overflow-x: hidden;
 }
 
 .header {
@@ -504,7 +503,7 @@ nav a:hover {
 
 .highlight-video {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 10rem;
 }
 
 .inline-video {
