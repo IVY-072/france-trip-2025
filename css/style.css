@@ -5,6 +5,8 @@
     gap: 1rem;
 }
 
+html, body { overscroll-behavior-x: none; }
+
 /*手機版面*/
 @media (min-width: 600px) {
     .navbar { display: flex; }
@@ -651,6 +653,7 @@ nav button:hover {
 }
 .image-item {
     flex: 0 0 auto;
+    margin: 0 auto;
     width: 330px;
     max-width: 35%;
 }
