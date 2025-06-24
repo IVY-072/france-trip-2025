@@ -4,15 +4,7 @@ function showTab(tabId) {
     tab.classList.remove('active');
   });
   document.getElementById(tabId).classList.add('active');
-
-  /*天數導航出現*/
-  const dayNav = document.getElementById('dayNav');
-  if (tabId === 'itinerary') {
-    dayNav.classList.add('visible');
-  } else {
-    dayNav.classList.remove('visible');
-  }
-}
+};
 
 /*哈比旅行社按鈕*/
 const agencyButton = document.getElementById('agencyButton')
@@ -47,6 +39,24 @@ document.addEventListener("DOMContentLoaded", function() {
       { threshold: 0 }
     );
     observer.observe(trigger);
+
+    /*天數導航下滑出現*/
+    const dayNav = document.getElementById('dayNav');
+    const target = document.getElementById('itinerary')
+
+    const navObserver = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        dayNav.classList.add('visible');
+      } else {
+        dayNav.classList.remove('visible');
+      }
+    }, {
+      root: null,
+      threshold: 0.1
+    });
+
+    navObserver.observe(target);
+
   
     /*天數導航點選跳轉*/
     document.querySelectorAll('.day-link').forEach(link => {

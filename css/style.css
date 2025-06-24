@@ -5,7 +5,15 @@
     gap: 1rem;
 }
 
+html {
+    overflow-x: hidden;
+}
+
 html, body { overscroll-behavior-x: none; }
+
+html {
+    scroll-behavior: smooth;
+}
 
 /*手機版面*/
 @media (min-width: 600px) {
@@ -64,6 +72,12 @@ body {
     font-weight: 300;
 }
 
+main {
+    padding: 0 2rem;
+    box-sizing: border-box;
+}
+  
+
 /*導覽列*/
 nav {
     display: flex;
@@ -75,7 +89,8 @@ nav {
     top: 0;
     z-index: 999;
 }
-nav button {
+nav button,
+nav a {
     justify-content: flex-start;
     background: none;
     color: #5e5e5e;
@@ -88,8 +103,10 @@ nav button {
     cursor: pointer;
     transition: color 0.3s ease;
     position: relative;
+    text-decoration: none;
 }
-nav button:not(:last-child)::after {
+nav button:not(:last-child)::after,
+nav a:not(:last-child)::after {
     content: "|";
     color: #D3C8BF;
     position: absolute;
@@ -98,7 +115,8 @@ nav button:not(:last-child)::after {
     transform: translateY(-50%);
     font-size: 1.2rem;
 }
-nav button:hover {
+nav button:hover,
+nav a:hover {
     text-decoration: none;
     color: #444;
 }
@@ -109,14 +127,6 @@ nav button:hover {
 }
 #navbar.scrolled {
     border-bottom: 1px solid rgba(211, 200, 191, 0.5);
-}
-
-.tab {
-    display: none;
-    padding: 2rem;
-}
-.active {
-    display: block;
 }
 
 .agency {
@@ -506,8 +516,8 @@ nav button:hover {
 /*每日行程*/
 .day {
     background: transparent;
-    left: 3rem;
     box-sizing: border-box;
+    left: 3rem;
     margin-bottom: 1.5rem;
     border-radius: 0;
     box-shadow: none;
@@ -570,10 +580,12 @@ nav button:hover {
 }
 #dayNav {
     opacity: 0;
+    pointer-events: none;
     transition: opacity 0.3s ease;
 }
 #dayNav.visible {
     opacity: 1;
+    pointer-events: auto;
 }
 
 /*天數大標與遊玩區域*/
@@ -653,18 +665,17 @@ nav button:hover {
 }
 .image-item {
     flex: 0 0 auto;
-    margin: 0 auto;
+    /*margin: 0 auto;*/
     width: 330px;
     max-width: 35%;
 }
 .image-item img {
     width: 100%;
-    height: 14vw;
+    aspect-ratio: 4.7/3;
     border-radius: 25px 25px 0 25px;
     object-fit: cover;
     vertical-align: middle;
 }
-
 .sight-title {
     font-size: 1.05rem;
     color: #8F613E;
@@ -686,7 +697,7 @@ nav button:hover {
     align-items: stretch;
     gap: 3rem;
     position: relative;
-    padding-left: 3rem;
+    left: 8rem;
     font-family: 'Noto Serif TC', serif;
     margin-top: 1rem;
     margin-bottom: 2rem;
@@ -701,9 +712,9 @@ nav button:hover {
 .info-itinerary {
     display: flex;
     align-items: stretch;
-    gap: 3.5rem;
+    gap: 5rem;
     position: relative;
-    width: 55%
+    width: 50%
 }
 .itinerary-label {
     display: flex;
@@ -740,7 +751,7 @@ nav button:hover {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    width: 45%;
+    width: 50%;
 }
 .others-food {
     display: flex;

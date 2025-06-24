@@ -16,8 +16,8 @@
   <!--導覽列-->
   <div id="nav-trigger"></div>
   <nav id="navbar">
-    <button onclick="showTab('group')">團體資訊</button>
-    <button onclick="showTab('itinerary')">每日行程</button>
+    <a href="#group">團體資訊</a>
+    <a href="#itinerary">每日行程</a>
     <button id="agencyButton" class="agency">哈比旅行社</button>
   </nav>
   <div id="agencyModal" class="modal">
@@ -28,7 +28,7 @@
 
   <main>
     <!--團體資訊-->
-    <section id="group" class="tab active">
+    <section id="group">
       <div class="group-title">
         <div class="group-title-ch">團體資訊</div>
         <div class="group-title-eng-wrapper">
@@ -188,7 +188,7 @@
     
     
     <!--每日行程-->
-    <section id="itinerary" class="tab">
+    <section id="itinerary">
 
       <!--天數導航-->
       <div class="day-nav" id="dayNav">
@@ -221,7 +221,7 @@
       <div class="day">
         <h2 id="day2">Day 2</h2>
         <div class="subtitle-wrapper">
-          <p class="subtitle">巴黎</p>
+          <p class="subtitle">巴黎－西堤島、橘園美術館</p>
           <div class="bg-accent"></div>
         </div>
 
@@ -283,6 +283,51 @@
         <div class="subtitle-wrapper">
           <p class="subtitle">巴黎－凡爾賽宮、艾菲爾鐵塔</p>
           <div class="bg-accent"></div>
+        </div>
+
+        <div class="image-gallery">
+          <div class="image-item">
+            <img src="images/sainte-chapelle.jpg" alt="聖禮拜堂">
+            <p class="sight-title">凡爾賽宮 Sainte-Chapelle</p>
+            <p class="sight-desc">以其華麗的彩繪玻璃窗聞名，是巴黎最令人驚豔的哥德式建築之一。</p>
+          </div>
+          <div class="image-item">
+            <img src="images/sainte-chapelle.jpg" alt="聖禮拜堂">
+            <p class="sight-title">艾菲爾鐵塔 Sainte-Chapelle</p>
+            <p class="sight-desc">以其華麗的彩繪玻璃窗聞名，是巴黎最令人驚豔的哥德式建築之一。</p>
+          </div>
+        </div>
+
+        <div class="info">
+          <div class="info-itinerary">
+            <div class="itinerary-label">
+              <img src="https://cdn-icons-png.flaticon.com/512/6491/6491443.png" alt="行程圖示">
+              <p>行程總覽</p>
+            </div>
+            <div class="itinerary-content">
+              <p>07:30 抵達巴黎機場<br>
+                 10:00 飯店放行李<br>
+                 11:00 聖禮拜堂<br>
+                 12:00 巴黎聖母院<br>
+                 14:30 莎士比亞書店<br>
+                 15:30 橘園美術館</p>
+            </div>
+          </div>
+          <div class="info-divider"></div>
+          <div class="info-others">
+            <div class="others-food">
+              <div class="food-label"><p>餐食</p></div>
+              <div class="food-content">
+                <p>早餐：飛機上<br>午餐：法式料理<br>晚餐：法式料理</p>
+              </div>
+            </div>
+            <div class="others-hotel">
+              <div class="hotel-label"><p>飯店</p></div>
+              <div class="hotel-content">
+                <p>4 星 Villa M<br>高級雙人房</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       
