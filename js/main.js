@@ -9,7 +9,6 @@ function showTab(tabId) {
 /*哈比旅行社按鈕*/
 const agencyButton = document.getElementById('agencyButton')
 const modal = document.getElementById('agencyModal')
-const close = modal.querySelector('.close')
 
 agencyButton.addEventListener('click', () => {
   modal.style.display = 'flex';
@@ -25,105 +24,109 @@ modal.addEventListener('click', (e) => {
 
 document.addEventListener("DOMContentLoaded", function() {  
   
-    /*導覽列停留於畫面最上方*/
-    const navbar = document.getElementById('navbar');
-    const trigger = document.getElementById('nav-trigger');
-    const observer = new IntersectionObserver(
+  /*導覽列停留於畫面最上方*/
+  const navbar = document.getElementById('navbar');
+  const trigger = document.getElementById('nav-trigger');
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        navbar.classList.remove('scrolled');
+      } else {
+        navbar.classList.add('scrolled');
+      }
+    },
+    { threshold: 0 }
+  );
+  observer.observe(trigger);
+
+  /*天數導航下滑出現*/
+  const dayNav = document.getElementById('dayNav');
+  const target = document.getElementById('itinerary')
+
+  const navObserver = new IntersectionObserver(([entry]) => {
+    if (entry.isIntersecting) {
+      dayNav.classList.add('visible');
+    } else {
+      dayNav.classList.remove('visible');
+    }
+  }, {
+    root: null,
+    threshold: 0.1
+  });
+  navObserver.observe(target);
+
+
+  /*天數導航點選跳轉*/
+  const dayLinks = Array.from(document.querySelectorAll('.day-link'));
+
+  dayLinks.forEach((link,idx) => {
+    link.addEventListener('click', function(event) {
+      document.querySelectorAll('.day-dot').forEach(dot =>
+        dot.classList.remove('active')
+      );
+      for (let i = 0; i <= idx; i++) {
+        dayLinks[i].querySelector('.day-dot').classList.add('active');
+      }
+    });
+  });
+  
+  
+  /*左滑或右滑入頁面*/
+  document.querySelectorAll('.day h2').forEach(dayh2 => {
+    const dayh2Observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          navbar.classList.remove('scrolled');
+          dayh2.classList.add('visible');
         } else {
-          navbar.classList.add('scrolled');
+          dayh2.classList.remove('visible');
         }
       },
-      { threshold: 0 }
+      { threshold: 0.2 }
     );
-    observer.observe(trigger);
-
-    /*天數導航下滑出現*/
-    const dayNav = document.getElementById('dayNav');
-    const target = document.getElementById('itinerary')
-
-    const navObserver = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        dayNav.classList.add('visible');
-      } else {
-        dayNav.classList.remove('visible');
-      }
-    }, {
-      root: null,
-      threshold: 0.1
-    });
-
-    navObserver.observe(target);
-
-  
-    /*天數導航點選跳轉*/
-    document.querySelectorAll('.day-link').forEach(link => {
-      link.addEventListener('click', function() {
-        document.querySelectorAll('.day-dot').forEach(dot => {
-          dot.classList.remove('active');
-        });
-        this.querySelector('.day-dot').classList.add('active');
-      });
-    });
-  
-    /*左滑或右滑入頁面*/
-    document.querySelectorAll('.day h2').forEach(dayh2 => {
-      const dayh2Observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            dayh2.classList.add('visible');
-          } else {
-            dayh2.classList.remove('visible');
-          }
-        },
-        { threshold: 0.2 }
-      );
-      dayh2Observer.observe(dayh2);
-    });
-  
-    document.querySelectorAll('.subtitle-wrapper').forEach(subtitleWrapper => {
-      const subtitleWrapperObserver = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            subtitleWrapper.classList.add('visible');
-          } else {
-            subtitleWrapper.classList.remove('visible');
-          }
-        },
-        { threshold: 0.2 }
-      );
-      subtitleWrapperObserver.observe(subtitleWrapper);
-    });
-  
-    document.querySelectorAll('.image-gallery').forEach(imageGallery => {
-      const imageGalleryObserver = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            imageGallery.classList.add('visible');
-          } else {
-            imageGallery.classList.remove('visible');
-          }
-        },
-        { threshold: 0.2 }
-      );
-      imageGalleryObserver.observe(imageGallery);
-    });
-  
-    document.querySelectorAll('.info').forEach(info => {
-      const infoObserver = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            info.classList.add('visible');
-          } else {
-            info.classList.remove('visible');
-          }
-        },
-        { threshold: 0.2 }
-      );
-      infoObserver.observe(info);
-    });
-  
+    dayh2Observer.observe(dayh2);
   });
+  
+  document.querySelectorAll('.subtitle-wrapper').forEach(subtitleWrapper => {
+    const subtitleWrapperObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          subtitleWrapper.classList.add('visible');
+        } else {
+          subtitleWrapper.classList.remove('visible');
+        }
+      },
+      { threshold: 0.2 }
+    );
+    subtitleWrapperObserver.observe(subtitleWrapper);
+  });
+  
+  document.querySelectorAll('.image-gallery').forEach(imageGallery => {
+    const imageGalleryObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          imageGallery.classList.add('visible');
+        } else {
+          imageGallery.classList.remove('visible');
+        }
+      },
+      { threshold: 0.2 }
+    );
+    imageGalleryObserver.observe(imageGallery);
+  });
+  
+  document.querySelectorAll('.info').forEach(info => {
+    const infoObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          info.classList.add('visible');
+        } else {
+          info.classList.remove('visible');
+        }
+      },
+      { threshold: 0.2 }
+    );
+    infoObserver.observe(info);
+  });
+  
+});
   

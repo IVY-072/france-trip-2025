@@ -1,7 +1,7 @@
 /*各裝置版面設定*/
 .container {
     display: grid;
-    grid-template-columns: repeat (auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 1rem;
 }
 
@@ -27,7 +27,6 @@ html {
 @media (min-width: 1200px) {
     .container { max-width: 1140px; margin: 0 auto; }
 }
-
 
 /*頁面設計*/
 body {
@@ -72,7 +71,7 @@ body {
 }
 
 main {
-    padding: 0 2rem;
+    padding: 0 0 0 2rem;
     box-sizing: border-box;
 }
   
@@ -516,7 +515,7 @@ nav a:hover {
 .day {
     background: transparent;
     box-sizing: border-box;
-    left: 3rem;
+    margin-left: 4.5rem;
     margin-bottom: 1.5rem;
     border-radius: 0;
     box-shadow: none;
@@ -621,6 +620,7 @@ nav a:hover {
 }
 .subtitle-wrapper {
     position: relative;
+    overflow: visible;
     width: 100%;
     max-width: 100%;
     opacity: 0;
@@ -635,11 +635,11 @@ nav a:hover {
     content: "";
     position: absolute;
     top: 1rem;
-    right: -3rem;
-    width: 50vw;
+    left: 50vw;
+    right: 0;
     height: 16.5rem;
     background-color: #F1EDEA;
-    z-index: -2;
+    z-index: -1;
     border-radius: 3rem 0 0 3rem;
     pointer-events: none;
 }
@@ -696,7 +696,7 @@ nav a:hover {
     align-items: stretch;
     gap: 3rem;
     position: relative;
-    left: 8rem;
+    margin-left: 8rem;
     font-family: 'Noto Serif TC', serif;
     margin-top: 1rem;
     margin-bottom: 2rem;
