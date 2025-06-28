@@ -127,6 +127,14 @@ nav a:hover {
     border-bottom: 1px solid rgba(211, 200, 191, 0.5);
 }
 
+#group {
+    scroll-margin: 7rem;
+}
+
+#itinerary {
+    scroll-margin: 7rem;
+}
+
 .agency {
     font-family: 'Noto Sans TC', serif;
     font-weight: 350;

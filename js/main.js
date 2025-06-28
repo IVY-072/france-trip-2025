@@ -61,12 +61,21 @@ document.addEventListener("DOMContentLoaded", function() {
 
   dayLinks.forEach((link,idx) => {
     link.addEventListener('click', function(event) {
+      event.preventDefault();
       document.querySelectorAll('.day-dot').forEach(dot =>
         dot.classList.remove('active')
       );
       for (let i = 0; i <= idx; i++) {
         dayLinks[i].querySelector('.day-dot').classList.add('active');
       }
+
+      const targetId = this.getAttribute("href").substring(1);
+      const targetEl = document.getElementById(targetId);
+
+      const yOffset = -112;
+      const y = targetEl.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+      window.scrollTo({ top: y, behavior: 'smooth'});
     });
   });
   
