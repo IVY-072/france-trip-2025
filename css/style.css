@@ -657,7 +657,7 @@ nav a:hover {
     display: flex;
     overflow-x: auto;
     justify-content: center;
-    gap: 3.5rem;
+    gap: 3rem;
     padding: 0 3rem 0 3rem;
     margin-top: 5rem;
     width: 100%;
