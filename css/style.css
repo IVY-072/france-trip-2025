@@ -741,6 +741,12 @@ nav a:hover {
     color: #8f613e;
     font-weight: 400;
     letter-spacing: 2.5px;
+    margin-bottom: -1rem;
+}
+.itinerary-content {
+    display: flex;
+    align-items: center;
+    height: 100%;
 }
 .itinerary-content p {
     font-size: 1.07rem;

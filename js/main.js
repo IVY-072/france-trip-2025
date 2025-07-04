@@ -41,19 +41,23 @@ document.addEventListener("DOMContentLoaded", function() {
 
   /*天數導航下滑出現*/
   const dayNav = document.getElementById('dayNav');
-  const target = document.getElementById('itinerary')
+  const day1 = document.getElementById('day1');
+  const itinerary = document.getElementById('itinerary');
+  
+  window.addEventListener('scroll', () => {
+    const day1Top = day1.getBoundingClientRect().top;
+    const itineraryBottom = itinerary.getBoundingClientRect().bottom;
+    const navbarHeight = navbar.offsetHeight;
 
-  const navObserver = new IntersectionObserver(([entry]) => {
-    if (entry.isIntersecting) {
+    const hasEntered = day1Top <= (navbarHeight + 48);
+    const notExited = itineraryBottom > navbarHeight;
+
+    if (hasEntered && notExited) {
       dayNav.classList.add('visible');
     } else {
       dayNav.classList.remove('visible');
     }
-  }, {
-    root: null,
-    threshold: 0.1
   });
-  navObserver.observe(target);
 
 
   /*天數導航點選跳轉*/
